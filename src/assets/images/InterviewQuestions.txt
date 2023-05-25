@@ -1,0 +1,48 @@
+**basic coding questions**
+
+1)questions with patterns 
+2)fibonacci series
+3)palindrome
+3)factorial
+4)recursion questions
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**Important DSA questions**
+
+1)Bubble sort 
+2)String questions 
+  a) reverse a string
+  b) reverse the order of words in a string without reversing the words. example: (input: I AM A STRING output: STRING A AM I)
+  c) reverse words in a string without changing their order. example: (input: I AM A STRING output: I MA A GNIRTS)
+  d) Print all permutations of string
+  e)Check if a string is palindrome
+3)In a tree print only the nodes which are visible if a person is seeing them from left. (level order traversal)
+4)Write a code to Find Largest sum contiguous Subarray
+5)Hashmap vvv imp learn it's concept, syntax of map and key value pairs
+  a)Frequency of element in a vector.
+6)Linear search, binary search, selection sort, bubble sort, insertion sort
+7)Put spaces between words starting with capital letter(vvv imp)
+  example: 
+    input = BruceWayneIsBatman
+    output = Bruce Wayne Is Batman
+8)Dynamic programming learn just how to use it (https://www.youtube.com/watch?v=mNrzyuus2h4&list=PLauivoElc3gimdmLcIIpafEkzGs4tCQmi&index=4) Refer this above video for learning DP
+
+//See learn as much as questions possible don't stick only on these questions
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+**SQL**
+
+Refer this video more than enough( https://www.youtube.com/watch?v=D_wNQR3LeeM )
+learn all concepts of joins(inner join, outer join etc) v.v.imp
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+**DBMS and OOPS**
+
+learn basic theory interview questions from google
+
+
+
+
