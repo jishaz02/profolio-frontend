@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import TeamCard from "../components/TeamCard";
 import Discussion from "../assets/images/blue.png";
 
-const teambuilder = () => {
+const Teambuilder = () => {
   const [topic, setTopic] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamSize, setTeamSize] = useState("");
@@ -188,4 +188,4 @@ const teambuilder = () => {
   );
 };
 
-export default teambuilder;
+export default Teambuilder;
