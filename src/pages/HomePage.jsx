@@ -10,7 +10,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (accounts.length > 0) {
-      fetch("http://localhost:5000/users/" + accounts[0])
+      fetch("https://profolio-backend-new.onrender.com/users/" + accounts[0])
         .then((response) => {
           if (response.status !== 200) {
             setIsOpen(true);

@@ -6,13 +6,16 @@ const TeamCard = ({ data }) => {
     const newMember = {
       member: localStorage.getItem("account"),
     };
-    fetch(`http://localhost:5000/teams/${data._id}/members`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMember),
-    })
+    fetch(
+      `https://profolio-backend-new.onrender.com/teams/${data._id}/members`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMember),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Something went wrong");
@@ -70,7 +73,7 @@ const TeamCard = ({ data }) => {
 const Member = ({ member, isLeader }) => {
   const [user, setUser] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/users/" + member)
+    fetch("https://profolio-backend-new.onrender.com/users/" + member)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Something went wrong");

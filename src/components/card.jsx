@@ -12,7 +12,7 @@ function Card({ data, onSave }) {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/users/" + data.wAddress)
+    fetch("https://profolio-backend-new.onrender.com/users/" + data.wAddress)
       .then((response) => {
         return response.json();
       })
@@ -27,11 +27,11 @@ function Card({ data, onSave }) {
     answers.length == 0 &&
       data.answers.map(async (answer) => {
         const response = await fetch(
-          "http://localhost:5000/forum/answers/" + answer
+          "https://profolio-backend-new.onrender.com/forum/answers/" + answer
         );
         const ans = await response.json();
         const response2 = await fetch(
-          "http://localhost:5000/users/" + ans.wAddress
+          "https://profolio-backend-new.onrender.com/users/" + ans.wAddress
         );
         const user = await response2.json();
         setAnswers((prev) => [...prev, { ans, user }]);

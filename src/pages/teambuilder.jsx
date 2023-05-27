@@ -22,7 +22,7 @@ const teambuilder = () => {
       description,
       leader: localStorage.getItem("account"),
     };
-    fetch("http://localhost:5000/teams", {
+    fetch("https://profolio-backend-new.onrender.com/teams", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const teambuilder = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/teams")
+    fetch("https://profolio-backend-new.onrender.com/teams")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Something went wrong");

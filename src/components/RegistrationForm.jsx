@@ -19,7 +19,7 @@ const RegistrationForm = ({ wAddress }) => {
       wAddress,
     };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://profolio-backend-new.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

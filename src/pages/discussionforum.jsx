@@ -13,9 +13,22 @@ import AddAnswer from "../components/AddAnswer";
 const DiscussionForum = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [topic, setTopic] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/forum/questions?topic=AIML")
+    const selectedTopic = localStorage.getItem("topic");
+    if (selectedTopic) {
+      setTopic(selectedTopic);
+    } else {
+      localStorage.setItem("topic", "AIML");
+      window.location.reload();
+    }
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "https://profolio-backend-new.onrender.com/forum/questions?topic=" + topic
+    )
       .then((response) => {
         return response.json();
       })
@@ -26,10 +39,10 @@ const DiscussionForum = () => {
       .catch((error) => {
         console.error("Error retrieving posts:", error);
       });
-  }, []);
+  }, [topic]);
 
   const handleAddQuestion = (question) => {
-    fetch("http://localhost:5000/forum/questions", {
+    fetch("https://profolio-backend-new.onrender.com/forum/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,31 +75,91 @@ const DiscussionForum = () => {
         {/*start point putting side bar and card in one row*/}
         {/*side bar start point*/}
         <div className=" w-40 py-20 mr-8 flex flex-col justify-start items-start fixed top-10 left-40">
-          <button className=" bg-[#0EA5E9] text-white shadow-lg w-32 flex justify-center items-center font-semibold">
+          <p className=" text-white shadow-lg w-32 flex justify-center items-center font-semibold">
             {" "}
             All Topics
-          </button>
-          <div className=" flex mt-2">
+          </p>
+          <div
+            className={`flex mt-2 p-2 rounded cursor-pointer ${
+              topic === "AIML" ? "bg-[#0EA5E9]" : ""
+            }`}
+          >
             <img className=" rounded-md w-5 h-5 " src={AIML} alt="" />
-            <p className=" px-2 font-serif text-white">AIML</p>
+            <p
+              className=" px-2 font-serif text-white "
+              onClick={() => {
+                localStorage.setItem("topic", "AIML");
+                window.location.reload();
+              }}
+            >
+              AIML
+            </p>
           </div>
 
-          <div className=" flex mt-2">
+          <div
+            className={`flex mt-2 p-2 rounded cursor-pointer ${
+              topic === "DSA" ? "bg-[#0EA5E9]" : ""
+            }`}
+          >
             <img className=" rounded-md w-5 h-5 " src={DSA} alt="" />
-            <p className=" px-2 font-serif text-white">DSA</p>
+            <p
+              className=" px-2 font-serif text-white"
+              onClick={() => {
+                localStorage.setItem("topic", "DSA");
+                window.location.reload();
+              }}
+            >
+              DSA
+            </p>
           </div>
-          <div className=" flex mt-2">
+          <div
+            className={`flex mt-2 p-2 rounded cursor-pointer ${
+              topic === "Math" ? "bg-[#0EA5E9]" : ""
+            }`}
+          >
             <img className=" rounded-md w-5 h-5 " src={Math} alt="" />
-            <p className=" px-2 font-serif text-white">Math</p>
+            <p
+              className=" px-2 font-serif text-white"
+              onClick={() => {
+                localStorage.setItem("topic", "Math");
+                window.location.reload();
+              }}
+            >
+              Math
+            </p>
           </div>
 
-          <div className=" flex mt-2">
+          <div
+            className={`flex mt-2 p-2 rounded cursor-pointer ${
+              topic === "Mechanical" ? "bg-[#0EA5E9]" : ""
+            }`}
+          >
             <img className=" rounded-md w-5 h-5 " src={Mechanical} alt="" />
-            <p className=" px-2 font-serif text-white">Mechanical</p>
+            <p
+              className=" px-2 font-serif text-white"
+              onClick={() => {
+                localStorage.setItem("topic", "Mechanical");
+                window.location.reload();
+              }}
+            >
+              Mechanical
+            </p>
           </div>
-          <div className=" flex mt-2">
+          <div
+            className={`flex mt-2 p-2 rounded cursor-pointer ${
+              topic === "System Software" ? "bg-[#0EA5E9]" : ""
+            }`}
+          >
             <img className=" rounded-md w-5 h-5 " src={SystemSoftware} alt="" />
-            <p className=" px-2 font-serif text-white">System Software</p>
+            <p
+              className=" px-2 font-serif text-white"
+              onClick={() => {
+                localStorage.setItem("topic", "System Software");
+                window.location.reload();
+              }}
+            >
+              System Software
+            </p>
           </div>
         </div>{" "}
         {/*side bar end point*/}
@@ -98,7 +171,7 @@ const DiscussionForum = () => {
               data={question}
               onSave={(answer) => {
                 fetch(
-                  "http://localhost:5000/forum/questions/" +
+                  "https://profolio-backend-new.onrender.com/forum/questions/" +
                     question._id +
                     "/answers",
                   {
